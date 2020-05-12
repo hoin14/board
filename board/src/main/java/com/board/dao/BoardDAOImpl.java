@@ -31,4 +31,21 @@ public class BoardDAOImpl implements BoardDAO {
 		sql.insert(namespace + ".write", vo);
 	}
 
+	// 게시물 조회
+	public BoardVO view(int bno) throws Exception {
+
+		return sql.selectOne(namespace + ".view", bno);
+	}
+
+	// 게시물 수정
+	@Override
+	public void modify(BoardVO vo) throws Exception {
+		sql.update(namespace + ".modify", vo);
+	}
+
+	// 게시물 삭제
+	public void delete(int bno) throws Exception {
+		sql.delete(namespace + ".delete", bno);
+	}
+
 }
