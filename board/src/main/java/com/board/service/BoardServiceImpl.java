@@ -25,7 +25,6 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public void write(BoardVO vo) throws Exception {
 		dao.write(vo);
-
 	}
 
 	// 게시물 조회
@@ -43,6 +42,18 @@ public class BoardServiceImpl implements BoardService {
 	// 게시물 삭제
 	public void delete(int bno) throws Exception {
 		dao.delete(bno);
+	}
+
+	// 게시물 총 갯수
+	@Override
+	public int count() throws Exception {
+		return dao.count();
+	}
+
+	// 게시물 목록 + 페이징
+	@Override
+	public List listPage(int displayPost, int postNum) throws Exception {
+		return dao.listPage(displayPost, postNum);
 	}
 
 }

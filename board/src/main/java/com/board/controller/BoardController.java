@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.board.dao.BoardDAO;
 import com.board.domain.BoardVO;
+import com.board.domain.Page;
 import com.board.service.BoardService;
 
 @Controller
@@ -73,6 +73,24 @@ public class BoardController {
 		service.delete(bno);
 
 		return "redirect:/board/list";
+	}
+
+	// 게시물 목록 + 페이징 추가
+	@RequestMapping(value = "/listPage", method = RequestMethod.GET)
+	public void getListPage(Model model, @RequestParam("num") int num) throws Exception {
+
+		Page page = new Page();
+
+		page.setNum(num);
+		page.setCount(service.count());
+
+		List list = null;
+		list = service.listPage(page.getDisplayPost(), page.getPostNum());
+
+		model.addAttribute("list", list);
+		model.addAttribute("page", page);
+		model.addAttribute("select", num);
+
 	}
 
 }
