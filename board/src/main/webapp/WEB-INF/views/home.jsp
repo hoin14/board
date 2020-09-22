@@ -7,7 +7,6 @@
 <title>Home</title>
 </head>
 <body>
-	<h1>안나 안뇽</h1>
 
 	<P>The time on the server is ${serverTime}.</P>
 
