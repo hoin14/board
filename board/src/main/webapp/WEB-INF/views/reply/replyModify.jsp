@@ -19,8 +19,10 @@
  <%@ include file="../include/nav.jsp" %>
 </div>
 
-	<form method="post">
+	<form method="post" action="/reply/replyModify">
 <c:forEach items="${reply}" var="reply">
+	<input type="hidden" id="rno" name="rno" value="${reply.rno}"/>
+					<input type="hidden" id="bno" name="bno" value="${reply.bno}"/>
 		<label>작성자</label>
 		<input type="text" name="writer" value="${reply.writer}"/><br /> 
 		<label>내용</label>

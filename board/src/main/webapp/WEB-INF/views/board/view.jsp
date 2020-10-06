@@ -55,15 +55,16 @@
 				<div>
 					<p>${reply.rno}/${reply.bno}/${reply.writer}/<fmt:formatDate
 							value="${reply.regDate}" pattern="yyyy-MM-dd" />
-						<a href="/board/replyModify?rno=${reply.rno}&bno=${reply.bno}">[수정</a>/<a
-							href="/board/replyDelete?rno=${reply.rno}&bno=${reply.bno}">삭제]</a>
+						<a href="/reply/replyModify?rno=${reply.rno}&bno=${reply.bno}">[수정</a>/<a
+							href="/reply/replyDelete?rno=${reply.rno}&bno=${reply.bno}">삭제]</a>
 					</p>
 					<p>${reply.content }</p>
 				</div>
 
 			</c:forEach>
 
-			<form method="post" name="replyWrite" class="form-horizontal">
+			<form method="post" action="/reply/replyWrite" class="form-horizontal">
+				<input type="hidden" id="bno" name="bno" value="${view.bno}"/>
 				<div class="form-group">
 					<label for="writer" class="col-sm-2 control-label">댓글 작성자</label>
 					<div class="col-sm-2">

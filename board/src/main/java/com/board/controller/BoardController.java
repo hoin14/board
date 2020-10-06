@@ -98,7 +98,7 @@ public class BoardController {
 		List<BoardVO> list = null;
 		list = service.listPage(page.getDisplayPost(), page.getPostNum());
 
-		model.addAttribute("list"	, list);
+		model.addAttribute("list", list);
 		model.addAttribute("page", page);
 		model.addAttribute("select", num);
 
@@ -126,64 +126,7 @@ public class BoardController {
 		model.addAttribute("list", list);
 		model.addAttribute("page", page);
 		model.addAttribute("select", num);
-		
-	}
 
-	// 댓글 작성
-	@RequestMapping(value = "/view", method = RequestMethod.POST)
-	public String postreplyWrite(ReplyVO vo) throws Exception {
-		replyService.write(vo);
-
-		return "redirect:/board/view?bno=" + vo.getBno();
-	}
-
-	// 댓글 수정
-	@RequestMapping(value = "/replyModify", method = RequestMethod.GET)
-	public void getrView(@RequestParam("rno") int rno, @RequestParam("bno") int bno, Model model) throws Exception {
-
-		List<ReplyVO> reply = null;
-		ReplyVO vo = new ReplyVO();
-
-		vo.setRno(rno);
-		vo.setBno(bno);
-
-		reply = replyService.listReply(vo);
-		model.addAttribute("reply", reply);
-	}
-
-	// 댓글 수정
-	@RequestMapping(value = "/replyModify", method = RequestMethod.POST)
-	public String postreplyModify(ReplyVO vo) throws Exception {
-		replyService.modify(vo);
-
-		return "redirect:/board/view?bno=" + vo.getBno();
-	}
-
-	// 댓글 삭제
-	@RequestMapping(value = "/replyDelete", method = RequestMethod.GET)
-	public String getreplyDelete(@RequestParam("rno") int rno, @RequestParam("bno") int bno) throws Exception {
-
-		ReplyVO vo = new ReplyVO();
-		int result = 0;
-
-		vo.setRno(rno);
-		vo.setBno(bno);
-
-		try {
-
-			replyService.delete(vo);
-		} catch (Exception e) {
-
-			result = 1;
-			e.printStackTrace();
-			throw e;
-		} finally {
-			if (result == 1) {
-				JOptionPane.showMessageDialog(null, "삭제하지 못했습니다.");
-			}
-		}
-
-		return "redirect:/board/view?bno=" + vo.getBno();
 	}
 
 }

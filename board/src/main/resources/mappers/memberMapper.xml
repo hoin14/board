@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.board.mappers.member">
+
+	<!-- 회원가입 등록 -->
+	<insert id="register" parameterType="com.board.domain.MemberVO">
+		insert into
+		mr_member(userId, userPass, userName, regDate)
+		value(#{userId},
+		#{userPass},
+		#{userName}, #{regDate})
+	</insert>
+
+
+
+</mapper>

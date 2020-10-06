@@ -12,7 +12,8 @@
 
 	<p>
 		<a href="/board/list">게시물 목록</a><br />
-		<a href="/board/write">게시물 작성</a>
+		<a href="/board/write">게시물 작성</a><br />
+		<a href="/member/register">회원가입</a>
 	</p>
 </body>
 </html>

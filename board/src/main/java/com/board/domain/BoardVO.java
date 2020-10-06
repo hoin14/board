@@ -7,6 +7,7 @@ public class BoardVO {
 	private String title;
 	private String content;
 	private String writer;
+	
 	public int getBno() {
 		return bno;
 	}
