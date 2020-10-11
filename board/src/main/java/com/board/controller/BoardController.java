@@ -45,7 +45,8 @@ public class BoardController {
 	@RequestMapping(value = "/write", method = RequestMethod.POST)
 	public String posttWirte(BoardVO vo) throws Exception {
 		service.write(vo);
-		return "redirect:/board/list";
+		return "redirect:/board/listPageSearch?num=1";
+		
 	}
 
 	// 게시물 조회
@@ -83,7 +84,7 @@ public class BoardController {
 
 		service.delete(bno);
 
-		return "redirect:/board/list";
+		return "redirect:/board/listPageSearch?num=1";
 	}
 
 	// 게시물 목록 + 페이징 추가

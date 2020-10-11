@@ -24,19 +24,24 @@
 
 		<section id="container">
 			<form method="post">
-				<div class="form-group">
-					<label class="col-sm-2 control-label">제목</label> <input type="text"
-						name="title" class="form-control" /><br /> <label
-						class="col-sm-2 control-label">작성자</label> <input type="text"
-						name="writer" class="form-control" /><br /> <label
-						class="col-sm-2 control-label">내용</label>
-					<textarea cols="50" rows="5" name="content" class="form-control"></textarea>
-					<br />
-				<div class="col-sm-1 col-sm-10">
-						<button type="submit" class="replyWriteBtn btn btn-success">
-							작성</button>
+				<c:if test="${member.userId != null }">
+					<div class="form-group">
+						<label class="col-sm-2 control-label">제목</label> <input
+							type="text" name="title" class="form-control" /><br /> <label
+							class="col-sm-2 control-label">작성자</label> <input type="text"
+							name="writer" class="form-control" /><br /> <label
+							class="col-sm-2 control-label">내용</label>
+						<textarea cols="50" rows="5" name="content" class="form-control"></textarea>
+						<br />
+						<div class="col-sm-1 col-sm-10">
+							<button type="submit" class="replyWriteBtn btn btn-success">
+								작성</button>
+						</div>
 					</div>
-				</div>
+				</c:if>
+				<c:if test="${member.userId == null }">
+				<p>로그인 후에 작성할 수 있습니다.</p>
+				</c:if>
 			</form>
 		</section>
 	</div>

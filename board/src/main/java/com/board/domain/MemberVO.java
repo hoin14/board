@@ -4,6 +4,14 @@ import java.util.Date;
 
 public class MemberVO {
 	
+//	CREATE TABLE `MR_MEMBER` (
+//			`USERID` VARCHAR(40) NOT NULL,
+//			`USERPASS` VARCHAR(100) NOT NULL,
+//			`USERNAME` VARCHAR(40) NOT NULL,
+//			`REGDATE` TIMESTAMP NOT NULL DEFAULT current_timestamp(),
+//			PRIMARY KEY (`USERID`)
+//		);
+	
 	private String userId;
 	private String userPass;
 	private String userName;
